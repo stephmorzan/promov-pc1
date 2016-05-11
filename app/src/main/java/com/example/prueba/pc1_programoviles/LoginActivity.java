@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.example.prueba.pc1_programoviles.beans.Alumno;
 import com.example.prueba.pc1_programoviles.presenter.LoginPresenter;
 
 import butterknife.BindView;
@@ -33,11 +33,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        String usuario = eteUsuario.getText().toString();
+        int usuario = Integer.parseInt(eteUsuario.getText().toString());
         String password = etePassword.getText().toString();
 
-        if(false){
-            Toast.makeText(this,"Login incorrecto. Verifique datos.", Toast.LENGTH_SHORT).show();
-        }
+        Alumno alumno = new Alumno(usuario, password);
+        loginPresenter.loguearAlumno(alumno);
     }
 }
