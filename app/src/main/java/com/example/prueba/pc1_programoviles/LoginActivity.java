@@ -8,11 +8,12 @@ import android.widget.EditText;
 
 import com.example.prueba.pc1_programoviles.beans.Alumno;
 import com.example.prueba.pc1_programoviles.presenter.LoginPresenter;
+import com.example.prueba.pc1_programoviles.view.LoginView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginView {
 
     @BindView(R.id.eteUsuario)
     EditText eteUsuario;
