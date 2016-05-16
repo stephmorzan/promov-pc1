@@ -1,12 +1,14 @@
 package com.example.prueba.pc1_programoviles.remote;
 
 import com.example.prueba.pc1_programoviles.beans.Alumno;
+import com.example.prueba.pc1_programoviles.beans.MsgResponse;
 
 import java.util.List;
 
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit.Call;
+import retrofit.http.Body;
+import retrofit.http.GET;
+import retrofit.http.POST;
 
 /**
  * Created by W3222 on 11/05/2016.
@@ -14,8 +16,8 @@ import retrofit2.http.POST;
 public interface Service {
 
     @POST("alumnos/login")
-    retrofit2.Call login(@Body Alumno alumno);
+    Call<MsgResponse> login(@Body Alumno alumno);
 
     @GET("alumnos/?sin_equipo=")
-    retrofit2.Call<List<Alumno>> obtenerAlumnos();
+    Call<List<Alumno>> obtenerAlumnos();
 }

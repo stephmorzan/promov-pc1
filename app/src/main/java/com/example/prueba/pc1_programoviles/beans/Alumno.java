@@ -6,25 +6,25 @@ package com.example.prueba.pc1_programoviles.beans;
 public class Alumno {
 
     private String nombre;
-    private int codigoUser;
+    private int usuario;
     private String password;
 
     public Alumno() {
     }
 
-    public Alumno(int codigoUser, String password) {
-        this.codigoUser = codigoUser;
+    public Alumno(int usuario, String password) {
+        this.usuario = usuario;
         this.password = password;
     }
 
-    public Alumno(String nombre, int codigoUser) {
+    public Alumno(String nombre, int usuario) {
         this.nombre = nombre;
-        this.codigoUser = codigoUser;
+        this.usuario = usuario;
     }
 
-    public Alumno(String nombre, int codigoUser, String password) {
+    public Alumno(String nombre, int usuario, String password) {
         this.nombre = nombre;
-        this.codigoUser = codigoUser;
+        this.usuario = usuario;
         this.password = password;
     }
 
@@ -36,12 +36,12 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public int getCodigoUser() {
-        return codigoUser;
+    public int getUsuario() {
+        return usuario;
     }
 
-    public void setCodigoUser(int codigoUser) {
-        this.codigoUser = codigoUser;
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
     }
 
     public String getPassword() {
