@@ -17,10 +17,15 @@ import com.example.prueba.pc1_programoviles.view.LoginView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginView {
+public class LoginActivity extends AppCompatActivity implements LoginView {
 
+    @BindView(R.id.eteUsuario)
     EditText eteUsuario;
+
+    @BindView(R.id.etePassword)
     EditText etePassword;
+
+    @BindView(R.id.butLogin)
     Button butLogin;
 
     LoginPresenter loginPresenter;
@@ -29,23 +34,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loginPresenter = new LoginPresenterImpl(this);
-        butLogin = (Button) findViewById(R.id.butLogin);
-        eteUsuario = (EditText)findViewById(R.id.eteUsuario);
-        etePassword = (EditText)findViewById(R.id.etePassword);
+
         ButterKnife.bind(this);
-        butLogin.setOnClickListener(this);
+
+        loginPresenter = new LoginPresenterImpl(this);
+        /*butLogin = (Button) findViewById(R.id.butLogin);
+        eteUsuario = (EditText)findViewById(R.id.eteUsuario);
+        etePassword = (EditText)findViewById(R.id.etePassword);*/
+        Log.e("butLogin", butLogin.toString());
+        butLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int usuario = Integer.parseInt(eteUsuario.getText().toString());
+                Log.e("numUsuario", usuario+"");
+                String password = etePassword.getText().toString();
+                Log.e("password", password);
+                Alumno alumno = new Alumno(usuario, password);
+                loginPresenter.loguearAlumno(alumno);
+            }
+        });
     }
 
-    @Override
-    public void onClick(View v) {
-        int usuario = Integer.parseInt(eteUsuario.getText().toString());
-        Log.e("numUsuario", usuario+"");
-        String password = etePassword.getText().toString();
-        Log.e("password", password);
-        Alumno alumno = new Alumno(usuario, password);
-        loginPresenter.loguearAlumno(alumno);
-    }
 
     @Override
     public void loginCorrecto() {
