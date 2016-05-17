@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public void loginCorrecto() {
         Log.e("!!!!!!!!!!!!!!!!!!", "holi");
         Intent intent = new Intent();
-        intent.setClass(LoginActivity.this, MainActivity.class);
+        intent.setClass(LoginActivity.this, ListarEquiposActivity.class);
         //intent.putExtra("usuario", Integer.parseInt(eteUsuario.getText().toString()));
         startActivity(intent);
     }

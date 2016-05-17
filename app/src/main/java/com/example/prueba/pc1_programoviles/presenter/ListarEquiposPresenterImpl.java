@@ -5,10 +5,8 @@ import android.util.Log;
 import com.example.prueba.pc1_programoviles.beans.Equipo;
 import com.example.prueba.pc1_programoviles.remote.Connection;
 import com.example.prueba.pc1_programoviles.remote.Service;
-import com.example.prueba.pc1_programoviles.view.LoginView;
-import com.example.prueba.pc1_programoviles.view.MainView;
+import com.example.prueba.pc1_programoviles.view.ListarEquiposView;
 
-import java.io.IOException;
 import java.util.List;
 
 import retrofit.Callback;
@@ -17,13 +15,13 @@ import retrofit.Response;
 /**
  * Created by Enzo on 16/05/16.
  */
-public class MainPresenterImpl implements MainPresenter{
+public class ListarEquiposPresenterImpl implements ListarEquiposPresenter {
 
-    private MainView mainView;
+    private ListarEquiposView listarEquiposView;
     Service conexion;
 
-    public MainPresenterImpl(MainView view) {
-        mainView = view;
+    public ListarEquiposPresenterImpl(ListarEquiposView view) {
+        listarEquiposView = view;
     }
 
     @Override
@@ -39,7 +37,7 @@ public class MainPresenterImpl implements MainPresenter{
 
                 Log.e("mensaje", ""+response.errorBody());*/
 
-                mainView.mostrarEquipos(response.body());
+                listarEquiposView.mostrarEquipos(response.body());
             }
 
             @Override

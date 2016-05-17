@@ -24,4 +24,7 @@ public interface Service {
 
     @GET("equipos")
     Call<List<Equipo>> obtenerEquipos();
+
+    @GET("equipos/")
+    Call<Equipo> obtenerEquipo();
 }

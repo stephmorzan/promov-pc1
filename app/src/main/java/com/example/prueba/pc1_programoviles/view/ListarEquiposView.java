@@ -7,6 +7,6 @@ import java.util.List;
 /**
  * Created by Enzo on 16/05/16.
  */
-public interface MainView {
+public interface ListarEquiposView {
     public void mostrarEquipos(List<Equipo> equipoList);
 }

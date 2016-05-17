@@ -11,36 +11,35 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.prueba.pc1_programoviles.R;
 import com.example.prueba.pc1_programoviles.beans.Equipo;
-import com.example.prueba.pc1_programoviles.presenter.MainPresenter;
-import com.example.prueba.pc1_programoviles.presenter.MainPresenterImpl;
+import com.example.prueba.pc1_programoviles.presenter.ListarEquiposPresenter;
+import com.example.prueba.pc1_programoviles.presenter.ListarEquiposPresenterImpl;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainView{
+public class ListarEquiposActivity extends AppCompatActivity implements ListarEquiposView {
 
     @BindView(R.id.gridView)
     GridView gridView;
 
-    MainPresenter mainPresenter;
+    ListarEquiposPresenter listarEquiposPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_listarEquipos);
         ButterKnife.bind(this);
 
-        mainPresenter = new MainPresenterImpl(this);
-        mainPresenter.getEquipos();
+        listarEquiposPresenter = new ListarEquiposPresenterImpl(this);
+        listarEquiposPresenter.getEquipos();
     }
 
     @Override
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, LoginActivity.class);
+                intent.setClass(ListarEquiposActivity.this, LoginActivity.class);
                 //intent.putExtra("usuario", Integer.parseInt(eteUsuario.getText().toString()));
                 startActivity(intent);
             }
@@ -86,6 +85,9 @@ class EquipoAdapter extends BaseAdapter{
 
     class ViewHolder {
         TextView textView;
+        ImageView iviAgregar;
+        ImageView iviIntegrantes;
+        ImageView iviCompartir;
 
         ViewHolder(View v){
             textView = (TextView) v.findViewById(R.id.nomEquipo);
