@@ -1,6 +1,7 @@
 package com.example.prueba.pc1_programoviles.remote;
 
 import com.example.prueba.pc1_programoviles.beans.Alumno;
+import com.example.prueba.pc1_programoviles.beans.Equipo;
 import com.example.prueba.pc1_programoviles.beans.MsgResponse;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface Service {
 
     @GET("alumnos/?sin_equipo=")
     Call<List<Alumno>> obtenerAlumnos();
+
+    @GET("equipos")
+    Call<List<Equipo>> obtenerEquipos();
 }

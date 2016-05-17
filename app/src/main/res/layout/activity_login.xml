@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.prueba.pc1_programoviles.LoginActivity"
+    tools:context=".view.LoginActivity"
     android:background="@drawable/bg_estadio"
     android:layout_weight="2"
     >
@@ -48,12 +48,14 @@
             android:id="@+id/eteUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFF"
             android:hint="Ingrese usuario" />
 
         <EditText
             android:id="@+id/etePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFF"
             android:hint="Ingrese contraseña"/>
 
         <Button

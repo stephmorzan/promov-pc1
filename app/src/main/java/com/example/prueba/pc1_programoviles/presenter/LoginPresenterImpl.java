@@ -32,11 +32,13 @@ public class LoginPresenterImpl implements LoginPresenter{
             @Override
             public void onResponse(Response<MsgResponse> response) {
                 Log.e("mensaje", response.body().getMsg());
-                if (response.body().getMsg() != "OK"){
+
+                loginView.loginCorrecto();
+                /*if (response.body().getMsg() != "OK"){
                     loginView.mostrarLoginIncorrecto();
                 }else{
                     loginView.loginCorrecto();
-                }
+                }*/
             }
 
             @Override

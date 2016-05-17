@@ -6,6 +6,8 @@ import retrofit.GsonConverterFactory;
 /**
  * Created by W3222 on 11/05/2016.
  */
+
+//Refator, hacer un singleton
 public class Connection {
 
     public static Service conectar(){

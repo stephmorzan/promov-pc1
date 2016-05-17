@@ -1,4 +1,4 @@
-package com.example.prueba.pc1_programoviles;
+package com.example.prueba.pc1_programoviles.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.prueba.pc1_programoviles.R;
 import com.example.prueba.pc1_programoviles.beans.Alumno;
 import com.example.prueba.pc1_programoviles.presenter.LoginPresenter;
 import com.example.prueba.pc1_programoviles.presenter.LoginPresenterImpl;
-import com.example.prueba.pc1_programoviles.view.LoginView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         butLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int usuario = Integer.parseInt(eteUsuario.getText().toString());
+                String usuario = (eteUsuario.getText().toString());
                 Log.e("numUsuario", usuario+"");
                 String password = etePassword.getText().toString();
                 Log.e("password", password);
@@ -58,9 +58,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void loginCorrecto() {
+        Log.e("!!!!!!!!!!!!!!!!!!", "holi");
         Intent intent = new Intent();
         intent.setClass(LoginActivity.this, MainActivity.class);
-        intent.putExtra("usuario", Integer.parseInt(eteUsuario.getText().toString()));
+        //intent.putExtra("usuario", Integer.parseInt(eteUsuario.getText().toString()));
         startActivity(intent);
     }
 
