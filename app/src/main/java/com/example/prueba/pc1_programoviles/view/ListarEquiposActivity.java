@@ -2,6 +2,7 @@ package com.example.prueba.pc1_programoviles.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +36,7 @@ public class ListarEquiposActivity extends AppCompatActivity implements ListarEq
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listarEquipos);
+        setContentView(R.layout.activity_listar_equipos);
         ButterKnife.bind(this);
 
         listarEquiposPresenter = new ListarEquiposPresenterImpl(this);
@@ -85,12 +86,11 @@ class EquipoAdapter extends BaseAdapter{
 
     class ViewHolder {
         TextView textView;
-        ImageView iviAgregar;
-        ImageView iviIntegrantes;
-        ImageView iviCompartir;
+        ImageView imageView;
 
         ViewHolder(View v){
             textView = (TextView) v.findViewById(R.id.nomEquipo);
+            imageView = (ImageView) v.findViewById(R.id.imgEquipo);
         }
     }
 
@@ -113,6 +113,7 @@ class EquipoAdapter extends BaseAdapter{
         Equipo eq = list.get(i);
         Log.e("" + i, eq.getNombre() + "");
         holder.textView.setText(eq.getNombre());
+        holder.imageView.setImageURI(Uri.parse(eq.getUrlFoto()));
 
         return row;
     }
