@@ -19,6 +19,7 @@ import com.example.prueba.pc1_programoviles.R;
 import com.example.prueba.pc1_programoviles.beans.Equipo;
 import com.example.prueba.pc1_programoviles.presenter.ListarEquiposPresenter;
 import com.example.prueba.pc1_programoviles.presenter.ListarEquiposPresenterImpl;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,7 +114,7 @@ class EquipoAdapter extends BaseAdapter{
         Equipo eq = list.get(i);
         Log.e("" + i, eq.getNombre() + "");
         holder.textView.setText(eq.getNombre());
-        holder.imageView.setImageURI(Uri.parse(eq.getUrlFoto()));
+        Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(holder.imageView);
 
         return row;
     }
