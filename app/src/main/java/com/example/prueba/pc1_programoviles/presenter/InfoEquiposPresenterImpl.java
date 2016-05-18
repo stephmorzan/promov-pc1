@@ -1,6 +1,6 @@
 package com.example.prueba.pc1_programoviles.presenter;
 
-import android.content.Intent;
+import android.util.Log;
 
 import com.example.prueba.pc1_programoviles.beans.Equipo;
 import com.example.prueba.pc1_programoviles.remote.Connection;
@@ -26,16 +26,20 @@ public class InfoEquiposPresenterImpl implements InfoEquiposPresenter{
     public void obtenerInfoEquipo(int id) {
         conexion=Connection.conectar();
 
-
         conexion.obtenerEquipo(id).enqueue(new Callback<Equipo>() {
             @Override
             public void onResponse(Response<Equipo> response) {
+                if (response.body()!=null){
+                    infoEquiposView.mostrarInfoEquipo(response.body());
+                }else{
+
+                }
 
             }
 
             @Override
             public void onFailure(Throwable t) {
-
+                Log.e("problema InfoEquipos =(", t.getMessage());
             }
         });
     }
