@@ -3,12 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="20dp"
     tools:context=".view.InfoEquipoActivity">
 
+<TextView
+    android:id="@+id/tviNombEquipo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Holi boli camarón con coli"
+    android:textSize="20dp"/>
 
+<ImageView
+    android:id="@+id/iviEquipo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tviNombEquipo"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tviPartidosGanados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iviEquipo"
+        android:textSize="14dp"
+        android:text="partidos ganados"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/tviPartidosPerdidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="partidos perdidos"
+        android:textSize="14dp"
+        android:layout_below="@id/tviPartidosGanados"/>
 
 </RelativeLayout>

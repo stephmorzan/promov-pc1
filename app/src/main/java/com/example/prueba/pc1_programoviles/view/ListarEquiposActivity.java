@@ -45,13 +45,15 @@ public class ListarEquiposActivity extends AppCompatActivity implements ListarEq
     }
 
     @Override
-    public void mostrarEquipos(List<Equipo> equipoList) {
+    public void mostrarEquipos(final List<Equipo> equipoList) {
         gridView.setAdapter(new EquipoAdapter(this, (ArrayList)equipoList));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent();
                 intent.setClass(ListarEquiposActivity.this, LoginActivity.class);
+                intent.putExtra("id",equipoList.get(i).getId());
+                Log.e("qué vale i =S", equipoList.get(i).getId()+"");
                 //intent.putExtra("usuario", Integer.parseInt(eteUsuario.getText().toString()));
                 startActivity(intent);
             }
