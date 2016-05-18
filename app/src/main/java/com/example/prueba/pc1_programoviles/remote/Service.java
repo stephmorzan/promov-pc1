@@ -10,6 +10,7 @@ import retrofit.Call;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Path;
 
 /**
  * Created by W3222 on 11/05/2016.
@@ -25,6 +26,6 @@ public interface Service {
     @GET("equipos")
     Call<List<Equipo>> obtenerEquipos();
 
-    @GET("equipos/")
-    Call<Equipo> obtenerEquipo();
+    @GET("equipos/{id}")
+    Call<Equipo> obtenerEquipo(@Path("id")int equipoId);
 }
