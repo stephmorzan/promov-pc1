@@ -74,7 +74,8 @@ public class ListarEquiposActivity extends AppCompatActivity implements ListarEq
                 //intent.setClass(ListarEquiposActivity.this, LoginActivity.class);
                 intent.setClass(ListarEquiposActivity.this, InfoEquipoActivity.class);
                 Log.e("qué vale i =S", equipoList.get(i).getId()+"");
-                Log.e("qué tiene el intent =S", intent.getStringExtra("id"));
+                System.out.println("Testing " + equipoList.get(i).getId()+" DiosMios");
+                //Log.e("qué tiene el intent =S", intent.getIntExtra("id",3)+" damn, no hay nada");
                 //intent.putExtra("usuario", Integer.parseInt(eteUsuario.getText().toString()));
                 startActivity(intent);
             }

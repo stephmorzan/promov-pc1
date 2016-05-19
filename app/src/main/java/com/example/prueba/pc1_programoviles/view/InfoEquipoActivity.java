@@ -28,26 +28,25 @@ public class InfoEquipoActivity extends AppCompatActivity implements InfoEquipos
     TextView partidosPerdidos;
 
     InfoEquiposPresenter presenter;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_equipo);
-        Log.e("valor de id", getIntent().getStringExtra("id")+" no hay nada");
-        int id = getIntent().getIntExtra("id",3);
+
+        id = getIntent().getIntExtra("id",0);
+        Log.e("valor de id", id+" no hay nada");
 
         /*tviNombEquipo=(TextView)findViewById(R.id.tviNombEquipo);
         iviEquipo=(ImageView)findViewById(R.id.iviEquipo);
         partidosGanados = (TextView) findViewById(R.id.tviPartidosGanados);
         partidosPerdidos = (TextView) findViewById(R.id.tviPartidosPerdidos); */
-
         ButterKnife.bind(this);
 
         presenter = new InfoEquiposPresenterImpl(this);
 
-
-
-        presenter.obtenerInfoEquipo(1);
+        presenter.obtenerInfoEquipo(id);
     }
 
     @Override

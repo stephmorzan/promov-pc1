@@ -56,7 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
-            android:hint="Ingrese contraseña"/>
+            android:hint="Ingrese contraseña"
+            android:password="true" />
 
         <Button
             android:id="@+id/butLogin"
