@@ -3,6 +3,7 @@ package com.example.prueba.pc1_programoviles.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +22,9 @@ public class InfoEquipoActivity extends AppCompatActivity implements InfoEquipos
     TextView tviNombEquipo;
     @BindView(R.id.iviEquipo)
     ImageView iviEquipo;
+    @BindView(R.id.tviPartidosGanados)
     TextView partidosGanados;
+    @BindView(R.id.tviPartidosPerdidos)
     TextView partidosPerdidos;
 
     InfoEquiposPresenter presenter;
@@ -30,6 +33,9 @@ public class InfoEquipoActivity extends AppCompatActivity implements InfoEquipos
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_equipo);
+        Intent intent = getIntent();
+        Log.e("valor de id", intent.getStringExtra("id")+" no hay nada");
+        //int id = Integer.parseInt(intent.getStringExtra("id"));
 
         /*tviNombEquipo=(TextView)findViewById(R.id.tviNombEquipo);
         iviEquipo=(ImageView)findViewById(R.id.iviEquipo);
@@ -40,14 +46,14 @@ public class InfoEquipoActivity extends AppCompatActivity implements InfoEquipos
 
         presenter = new InfoEquiposPresenterImpl(this);
 
-        Intent intent = getIntent();
-        int id = Integer.parseInt(intent.getStringExtra("id"));
 
-        presenter.obtenerInfoEquipo(id);
+
+        presenter.obtenerInfoEquipo(1);
     }
 
     @Override
     public void mostrarInfoEquipo(Equipo equipo) {
+        Log.e("nombre Team", equipo.getNombre());
         tviNombEquipo.setText(equipo.getNombre());
         Picasso.with(this).load(equipo.getUrlFoto()).into(iviEquipo);
         partidosGanados.setText("Partidos ganados: " + equipo.getPartidosGanados());

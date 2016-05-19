@@ -51,8 +51,9 @@ public class ListarEquiposActivity extends AppCompatActivity implements ListarEq
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent();
-                intent.setClass(ListarEquiposActivity.this, LoginActivity.class);
                 intent.putExtra("id",equipoList.get(i).getId());
+                //intent.setClass(ListarEquiposActivity.this, LoginActivity.class);
+                intent.setClass(ListarEquiposActivity.this, InfoEquipoActivity.class);
                 Log.e("qué vale i =S", equipoList.get(i).getId()+"");
                 //intent.putExtra("usuario", Integer.parseInt(eteUsuario.getText().toString()));
                 startActivity(intent);
