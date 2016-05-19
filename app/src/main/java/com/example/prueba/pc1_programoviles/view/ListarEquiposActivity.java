@@ -44,9 +44,28 @@ public class ListarEquiposActivity extends AppCompatActivity implements ListarEq
         listarEquiposPresenter.getEquipos();
     }
 
+
+
     @Override
     public void mostrarEquipos(final List<Equipo> equipoList) {
-        gridView.setAdapter(new EquipoAdapter(this, (ArrayList)equipoList));
+
+
+        EquipoAdapter equipoAdapter = new EquipoAdapter(this, (ArrayList)equipoList);
+
+        equipoAdapter.setOnItemClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(ListarEquiposActivity.this, IntegranteNuevoActivity.class);
+                //Log.e("CELESTE", view.getTag().toString());
+                /*EquipoAdapter.ViewHolder holder = (EquipoAdapter.ViewHolder)  view.getTag();
+                String id = String.valueOf(holder.getId());
+                intent.putExtra("id", id);*/
+                startActivity(intent);
+            }
+        });
+
+        gridView.setAdapter(equipoAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -59,6 +78,8 @@ public class ListarEquiposActivity extends AppCompatActivity implements ListarEq
                 startActivity(intent);
             }
         });
+
+
     }
 }
 
@@ -67,6 +88,7 @@ class EquipoAdapter extends BaseAdapter{
 
     ArrayList<Equipo> list;
     Context context;
+    View.OnClickListener itemClickListener;
 
     EquipoAdapter(Context context, ArrayList<Equipo> list) {
         this.context = context;
@@ -88,14 +110,68 @@ class EquipoAdapter extends BaseAdapter{
         return i;
     }
 
-    class ViewHolder {
+    public class ViewHolder {
         TextView textView;
         ImageView imageView;
+        ImageView addImageView;
+        int id;
+
+        @Override
+        public String toString() {
+            return "ViewHolder{" +
+                    "textView=" + textView +
+                    ", imageView=" + imageView +
+                    ", addImageView=" + addImageView +
+                    ", id=" + id +
+                    '}';
+        }
+
+        public TextView getTextView() {
+            return textView;
+        }
+
+        public void setTextView(TextView textView) {
+            this.textView = textView;
+        }
+
+        public ImageView getImageView() {
+            return imageView;
+        }
+
+        public void setImageView(ImageView imageView) {
+            this.imageView = imageView;
+        }
+
+        public ImageView getAddImageView() {
+            return addImageView;
+        }
+
+        public void setAddImageView(ImageView addImageView) {
+            this.addImageView = addImageView;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         ViewHolder(View v){
+            //v.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, 180));
             textView = (TextView) v.findViewById(R.id.nomEquipo);
             imageView = (ImageView) v.findViewById(R.id.imgEquipo);
+            addImageView = (ImageView) v.findViewById(R.id.addMember);
         }
+
+
+
+    }
+
+
+    public void setOnItemClick(View.OnClickListener listener){
+        itemClickListener = listener;
     }
 
     @Override
@@ -110,14 +186,16 @@ class EquipoAdapter extends BaseAdapter{
 
             row = inflater.inflate(R.layout.equipo_item, viewGroup, false);
             holder = new ViewHolder(row);
-            row.setTag(holder);
         }else{
             holder = (ViewHolder) row.getTag();
         }
         Equipo eq = list.get(i);
-        Log.e("" + i, eq.getNombre() + "");
+        Log.e("URL_FOTO_EQUIPO", eq.getUrlFoto());
         holder.textView.setText(eq.getNombre());
-        Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(holder.imageView);
+        Picasso.with(context).load(eq.getUrlFoto()).into(holder.imageView);
+        holder.addImageView.setOnClickListener(itemClickListener);
+        holder.setId(eq.getId());
+        row.setTag(holder);
 
         return row;
     }

@@ -34,11 +34,11 @@ public class LoginPresenterImpl implements LoginPresenter{
                 Log.e("mensaje", response.body().getMsg());
 
                 loginView.loginCorrecto();
-                /*if (response.body().getMsg() != "OK"){
+                if (response.body().getMsg() != "OK"){
                     loginView.mostrarLoginIncorrecto();
                 }else{
                     loginView.loginCorrecto();
-                }*/
+                }
             }
 
             @Override

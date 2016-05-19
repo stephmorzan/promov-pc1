@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PC1-PrograMoviles</string>
+    <string name="title_activity_agregar_persona">AgregarPersona</string>
 </resources>
