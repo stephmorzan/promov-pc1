@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/imgEquipo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop" />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#fff"
         android:gravity="center_horizontal"
         android:text="Titulo de equipo"
-        android:textSize="40dp"
+        android:textSize="18dp"
         android:id="@+id/nomEquipo"
-        android:layout_centerInParent="true"/>
+        android:layout_below="@+id/imgEquipo"
+        android:layout_marginTop="-50dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:layout_alignParentBottom="true">
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/imgEquipo"
+        android:background="#fff">
         <ImageView
             android:id="@+id/addMember"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:src="@drawable/add"/>
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:src="@drawable/contact"/>
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:src="@drawable/share"/>
 
