@@ -33,9 +33,8 @@ public class InfoEquipoActivity extends AppCompatActivity implements InfoEquipos
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_equipo);
-        Intent intent = getIntent();
-        Log.e("valor de id", intent.getStringExtra("id")+" no hay nada");
-        //int id = Integer.parseInt(intent.getStringExtra("id"));
+        Log.e("valor de id", getIntent().getStringExtra("id")+" no hay nada");
+        int id = getIntent().getIntExtra("id",3);
 
         /*tviNombEquipo=(TextView)findViewById(R.id.tviNombEquipo);
         iviEquipo=(ImageView)findViewById(R.id.iviEquipo);

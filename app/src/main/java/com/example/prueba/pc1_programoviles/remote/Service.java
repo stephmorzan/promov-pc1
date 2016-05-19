@@ -20,8 +20,8 @@ public interface Service {
     @POST("alumnos/login")
     Call<MsgResponse> login(@Body Alumno alumno);
 
-    @GET("alumnos/?sin_equipo={sin_equipo}")
-    Call<List<Alumno>> obtenerAlumnos(@Path("sin_equipo")boolean sinEquipo);
+    @GET("alumnos/?sin_equipo=true")
+    Call<List<Alumno>> obtenerAlumnos();
 
     @GET("equipos")
     Call<List<Equipo>> obtenerEquipos();
